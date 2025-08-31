@@ -170,7 +170,12 @@ def format_protobuf_response(data):
             'showCsRank': basic_info.get('showCsRank', False),
             'socialHighLightsWithBasicInfo': basic_info.get('socialHighLightsWithBasicInfo', {}),
             'title': basic_info.get('title', 0),
-            'weaponSkinShows': basic_info.get('weaponSkinShows', [])
+            'weaponSkinShows': basic_info.get('weaponSkinShows', []),
+            # ✅ Prime related fields
+            'primeLevel': basic_info.get('primeLevel', 'PRIME_LEVEL_NONE'),
+            'primeExpireTime': basic_info.get('primeExpireTime', 0),
+            'primePoints': basic_info.get('primePoints', 0),
+            'primeSeasonProgress': basic_info.get('primeSeasonProgress', 0)
         }
     
     # Captain Basic Info
@@ -206,7 +211,12 @@ def format_protobuf_response(data):
             'showCsRank': captain_info.get('showCsRank', False),
             'socialHighLightsWithBasicInfo': captain_info.get('socialHighLightsWithBasicInfo', {}),
             'title': captain_info.get('title', 0),
-            'weaponSkinShows': captain_info.get('weaponSkinShows', [])
+            'weaponSkinShows': captain_info.get('weaponSkinShows', []),
+            # ✅ Prime related fields
+            'primeLevel': captain_info.get('primeLevel', 'PRIME_LEVEL_NONE'),
+            'primeExpireTime': captain_info.get('primeExpireTime', 0),
+            'primePoints': captain_info.get('primePoints', 0),
+            'primeSeasonProgress': captain_info.get('primeSeasonProgress', 0)
         }
     
     # Clan Basic Info
@@ -230,12 +240,11 @@ def format_protobuf_response(data):
             'rewardState': credit_info.get('rewardState', 'REWARD_STATE_UNCLAIMED')
         }
     
-    # Diamond Cost Res - Add primeLevel field
+    # Diamond Cost Res
     if 'diamondCostRes' in data:
         diamond_info = data['diamondCostRes']
         formatted_data['diamondCostRes'] = {
-            'diamondCost': diamond_info.get('diamondCost', 0),
-            'primeLevel': diamond_info.get('primeLevel', 'PRIME_LEVEL_NONE')  # New field
+            'diamondCost': diamond_info.get('diamondCost', 0)
         }
     
     # Pet Info
